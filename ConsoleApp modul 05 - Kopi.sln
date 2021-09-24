@@ -1,25 +1,43 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp modul 05", "ConsoleApp modul 05\ConsoleApp modul 05.csproj", "{083174BD-D7B2-4DAE-B536-032BCE58217D}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{083174BD-D7B2-4DAE-B536-032BCE58217D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{083174BD-D7B2-4DAE-B536-032BCE58217D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{083174BD-D7B2-4DAE-B536-032BCE58217D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{083174BD-D7B2-4DAE-B536-032BCE58217D}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {DAC005BB-74A3-4015-B72A-132D302225C5}
-	EndGlobalSection
-EndGlobal
+using System;
+
+namespace ConsoleApp_modul_05
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {           
+            //5.04 Gættespil
+            Random rand = new Random();
+            int guess = 0;
+            string welcome = "Gæt et tal mellem 1 og 20";
+            int num = rand.Next(1, 20);
+            Console.WriteLine(guess);
+
+
+            int i = 0;
+
+            while (guess != num)
+            {
+                try
+                {
+                    guess = Convert.ToInt32(Console.ReadLine());
+
+                    if (guess < num)
+                        Console.WriteLine("For højt");
+                    else
+                        Console.WriteLine("For lavt");
+                }
+                    catch
+                {
+                    Console.WriteLine("Skal være et tal");
+                    i++;
+                }
+
+
+                i--;
+            }
+            Console.WriteLine("Tillykke! Det tog dig " + i + " forsøg at gætte tallet");
+            Console.ReadLine(); 
+        }
+    }
+}
